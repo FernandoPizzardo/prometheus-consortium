@@ -1,24 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prometheus_consortium/core/core.dart';
-import 'package:prometheus_consortium/features/presentation/presentation.dart';
+import 'package:prometheus_consortium/prometheus.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<HomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,24 +18,19 @@ class _MyHomePageState extends State<HomePage> {
           image: DecorationImage(
               image: AssetImage("assets/images/splash.png"), fit: BoxFit.cover),
         ),
-        child:  SizedBox(
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            
-            children: [
-              Text(
-                "Consórcio\nPrometheus",
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                  
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  color: PrometheusPalette.light,
-                ),
+        child: const Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              "Consórcio\nPrometheus",
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                fontSize: 48,
+                fontWeight: FontWeight.bold,
+                color: PrometheusPalette.light,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
 

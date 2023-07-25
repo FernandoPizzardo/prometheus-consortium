@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Consórcio Prometheus',
       theme: PrometheusAppTheme.instance.appTheme,
-      home: const HomePage(title: 'Consórcio Prometheus'),
+      home: const HomePage(),
     );
   }
 }
