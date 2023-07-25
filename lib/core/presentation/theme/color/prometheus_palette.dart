@@ -24,9 +24,9 @@ class PrometheusPalette {
   static const error = PrometheusColor.fromRGBO(255, 97, 97, 1);
   static const success = PrometheusColor.fromRGBO(48, 183, 0, 1);
   static const caution = PrometheusColor.fromRGBO(255, 190, 23, 1);
-  static const safeStatusBlue = PrometheusColor.fromRGBO(5, 177, 232, 1);
+  static const safeStatusOrange = PrometheusColor.fromRGBO(232, 90, 5, 1);
   static const darkBlue = PrometheusColor.fromRGBO(13, 49, 88, 1);
   static const darkBlue2 = PrometheusColor.fromRGBO(13, 70, 132, 1);
-  static const linearGradient = PrometheusColor.fromRGBO(116, 220, 243, 1);
+  static const linearGradient = PrometheusColor.fromRGBO(243, 110, 110, 1);
 }
 
