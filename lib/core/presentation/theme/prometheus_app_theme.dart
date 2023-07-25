@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'theme.dart';
 
 class PrometheusAppTheme {
   PrometheusAppTheme._();
@@ -8,13 +8,17 @@ class PrometheusAppTheme {
   static PrometheusAppTheme instance = PrometheusAppTheme._();
 
   ThemeData get appTheme => ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: PrometheusPalette.redPrimary),
         appBarTheme: const AppBarTheme(
           elevation: 0,
           centerTitle: true,
           titleTextStyle: TextStyle(
-            fontFamily: 'Sense',
+            fontFamily: 'Raleway',
+            fontSize: 17
+            
           ),
-          backgroundColor: Colors.red,
+          backgroundColor: PrometheusPalette.redPrimary,
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,
             statusBarIconBrightness: Brightness.light,
@@ -26,16 +30,16 @@ class PrometheusAppTheme {
             padding: MaterialStateProperty.all(EdgeInsets.zero),
             backgroundColor: MaterialStateProperty.resolveWith((states) {
               if (states.contains(MaterialState.disabled)) {
-                return const Color.fromRGBO(109, 43, 44, 1);
+                return const PrometheusColor.fromRGBO(59, 43, 44, 1);
               }
 
-              return Colors.redAccent;
+              return PrometheusPalette.redPrimary;
             }),
             textStyle: MaterialStateProperty.all(
               const TextStyle(
                 fontSize: 14,
-                color: Colors.white,
-                fontFamily: 'Sense',
+                color: PrometheusPalette.light,
+                fontFamily: 'Raleway',
                 fontWeight: FontWeight.bold,
               ),
             ),
