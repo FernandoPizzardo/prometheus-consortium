@@ -1,16 +1,10 @@
-# prometheus_consortium
+# Prometheus Consortium
 
-A new Flutter project.
+A study on Clean Architecture and Flutter
 
-## Getting Started
+## Concepts used
 
-This project is a starting point for a Flutter application.
+### - Clean Architecture:
+This project is inspired by the concept of Clean Architecture as it was theorized by Uncle Bob (Robert C. Martin's Clean Architecture A Craftsman Guide to Software Structure and Design). The structure and translation into Dart and Flutter's framework is based upon [Reso Coder's](https://github.com/ResoCoder/flutter-tdd-clean-architecture-course) and [Flutterando's](https://github.com/Flutterando/Clean-Dart) guides. The image below is a helpful guide on the code's structure.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Image](assets/readme_clean.png)
