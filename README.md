@@ -1,6 +1,6 @@
 # Prometheus Consortium
 
-A study on Clean Architecture and Flutter
+An implementation on Clean Architecture and Flutter
 
 ## Concepts used
 
