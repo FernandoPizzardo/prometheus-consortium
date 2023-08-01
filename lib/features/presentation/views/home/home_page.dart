@@ -1,11 +1,20 @@
-import 'dart:ui';
-
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:prometheus_consortium/prometheus.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+   bool blurred;
+   HomePage({
+    Key? key,
+     required this.blurred,
+  }) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,23 +29,10 @@ class HomePage extends StatelessWidget {
           image: DecorationImage(
               image: AssetImage("assets/images/splash.png"), fit: BoxFit.cover),
         ),
-         child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
-            child: const Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              "Consórcio\nPrometheus",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
-                color: PrometheusPalette.light,
-              ),
-            ),
-          ],
+        child: PrometheusBlur(
+          isBlur: widget.blurred,
+          title: 'Consórcio\nPrometheus',
         ),
-      ),
       ),
 
       bottomNavigationBar: Container(
@@ -48,7 +44,6 @@ class HomePage extends StatelessWidget {
           children: [
             SizedBox(
               width: 380,
-              
               child: ElevatedButton(
                 onPressed: () => Navigator.push(
                   context,
@@ -70,12 +65,9 @@ class HomePage extends StatelessWidget {
                 style: const ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll(PrometheusPalette.light)),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LoginPage(),
-                  ),
-                ),
+                onPressed: () => setState(() {
+                  widget.blurred = true;
+                }),
                 child: const Text("Cadastre-se"),
               ),
             ),

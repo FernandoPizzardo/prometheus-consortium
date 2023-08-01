@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Consórcio Prometheus',
       theme: PrometheusAppTheme.instance.appTheme,
-      home: const HomePage(),
+      home:  HomePage(blurred: false,),
     );
   }
 }
