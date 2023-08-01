@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:prometheus_consortium/prometheus.dart';
 
@@ -18,7 +20,9 @@ class HomePage extends StatelessWidget {
           image: DecorationImage(
               image: AssetImage("assets/images/splash.png"), fit: BoxFit.cover),
         ),
-        child: const Row(
+         child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
+            child: const Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
@@ -33,47 +37,50 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      ),
 
-      bottomNavigationBar: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: FilledButton(
-              style: const ButtonStyle(
-                backgroundColor:
-                    MaterialStatePropertyAll(PrometheusPalette.redPrimary),
-              ),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LoginPage(),
+      bottomNavigationBar: Container(
+        width: double.infinity,
+        color: Colors.white10,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 380,
+              
+              child: ElevatedButton(
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginPage(),
+                  ),
+                ),
+                child: const Text(
+                  "Login",
+                  style: TextStyle(
+                    color: PrometheusPalette.light,
+                  ),
                 ),
               ),
-              child: const Text("Login"),
             ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: OutlinedButton(
-              style: const ButtonStyle(
-                  backgroundColor:
-                      MaterialStatePropertyAll(PrometheusPalette.light)),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LoginPage(),
+            SizedBox(
+              width: 380,
+              child: ElevatedButton(
+                style: const ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(PrometheusPalette.light)),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginPage(),
+                  ),
                 ),
+                child: const Text("Cadastre-se"),
               ),
-              child: const Text("Cadastre-se"),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
