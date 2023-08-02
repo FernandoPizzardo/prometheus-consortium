@@ -22,16 +22,19 @@ class _PrometheusBlurState extends State<PrometheusBlur> {
   Widget build(BuildContext context) {
     return BackdropFilter(
       filter: widget.isBlur ? ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0) : ImageFilter.blur(),
-      child:  Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+      child:  Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            widget.title ?? '',
-            textAlign: TextAlign.start,
-            style: const TextStyle(
-              fontSize: 48,
-              fontWeight: FontWeight.bold,
-              color: PrometheusPalette.light,
+          Center(
+            child: Text(
+              widget.title ?? '',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 48,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Ubuntu',
+                color: PrometheusPalette.redPrimary,
+              ),
             ),
           ),
         ],

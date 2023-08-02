@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:prometheus_consortium/prometheus.dart';
 
 class HomePage extends StatefulWidget {
-   bool blurred;
-   HomePage({
+  const HomePage({
     Key? key,
-     required this.blurred,
   }) : super(key: key);
 
   @override
@@ -19,18 +17,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).colorScheme.primary,
-      //   title: Text(widget.title),
-      // ),
       body: Container(
-        constraints: const BoxConstraints.expand(),
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/splash.png"), fit: BoxFit.cover),
-        ),
+          constraints: const BoxConstraints.expand(),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/splash.png"),
+                fit: BoxFit.cover),
+          ),
         child: PrometheusBlur(
-          isBlur: widget.blurred,
+          isBlur: false,
           title: 'Consórcio\nPrometheus',
         ),
       ),
@@ -59,16 +54,28 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SizedBox(
-              width: 380,
-              child: ElevatedButton(
-                style: const ButtonStyle(
-                    backgroundColor:
-                        MaterialStatePropertyAll(PrometheusPalette.light)),
-                onPressed: () => setState(() {
-                  widget.blurred = true;
-                }),
-                child: const Text("Cadastre-se"),
+            SafeArea(
+              child: SizedBox(
+                width: 380,
+                child: ElevatedButton(
+                  style: const ButtonStyle(
+                      backgroundColor:
+                          MaterialStatePropertyAll(PrometheusPalette.light)),
+                  onPressed: () => showModalBottomSheet(
+                    context: context,
+                    builder: ((context) => Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            children: [
+                              TextFormField(
+                                decoration: InputDecoration(labelText: 'CPF'),
+                              ),
+                            ],
+                          ),
+                        )),
+                  ),
+                  child: const Text("Cadastre-se"),
+                ),
               ),
             ),
           ],
