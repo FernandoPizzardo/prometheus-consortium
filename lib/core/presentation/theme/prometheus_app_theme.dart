@@ -9,14 +9,14 @@ class PrometheusAppTheme {
 
   ThemeData get appTheme => ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: PrometheusPalette.redPrimary),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: PrometheusPalette.redPrimary),
         appBarTheme: const AppBarTheme(
           elevation: 0,
           centerTitle: true,
           titleTextStyle: TextStyle(
-            fontFamily: 'Raleway',
-            fontSize: 17
-            
+            fontFamily: 'Rubik',
+            fontSize: 17,
           ),
           backgroundColor: PrometheusPalette.redPrimary,
           systemOverlayStyle: SystemUiOverlayStyle(
@@ -39,7 +39,7 @@ class PrometheusAppTheme {
               const TextStyle(
                 fontSize: 14,
                 color: PrometheusPalette.light,
-                fontFamily: 'Raleway',
+                fontFamily: 'Rubik',
                 fontWeight: FontWeight.bold,
               ),
             ),

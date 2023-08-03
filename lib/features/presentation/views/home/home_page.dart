@@ -18,18 +18,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBody: true,
       body: Container(
-          constraints: const BoxConstraints.expand(),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/splash.png"),
-                fit: BoxFit.cover),
-          ),
-        child: PrometheusBlur(
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/splash.png"), fit: BoxFit.cover),
+        ),
+        child: const PrometheusBlur(
           isBlur: false,
           title: 'Consórcio\nPrometheus',
         ),
       ),
-
       bottomNavigationBar: Container(
         width: double.infinity,
         color: Colors.white10,
@@ -63,12 +61,19 @@ class _HomePageState extends State<HomePage> {
                           MaterialStatePropertyAll(PrometheusPalette.light)),
                   onPressed: () => showModalBottomSheet(
                     context: context,
-                    builder: ((context) => Padding(
-                          padding: const EdgeInsets.all(16.0),
+                    builder: ((context) => const Padding(
+                          padding: EdgeInsets.all(16.0),
                           child: Column(
                             children: [
-                              TextFormField(
-                                decoration: InputDecoration(labelText: 'CPF'),
+                              PrometheusTextFormField(
+                                textInput: TextInputType.number,
+                                title: 'CPF',
+                              ),
+                              SizedBox(
+                                height: 16,
+                              ),
+                              PrometheusTextFormField(
+                                title: 'Senha',
                               ),
                             ],
                           ),
