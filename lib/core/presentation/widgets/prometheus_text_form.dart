@@ -6,11 +6,13 @@ class PrometheusTextFormField extends StatefulWidget {
   final TextInputType? textInput;
 
   final String title;
+  final bool isPassword;
 
   const PrometheusTextFormField({
     this.textInput,
     super.key,
     required this.title,
+    this.isPassword = false,
   });
 
   @override
@@ -24,6 +26,7 @@ class _PrometheusTextFormFieldState extends State<PrometheusTextFormField> {
     return TextFormField(
       keyboardType: widget.textInput,
       focusNode: FocusNode(),
+      obscureText: widget.isPassword,
       decoration: InputDecoration(
         labelText: widget.title,
         border: OutlineInputBorder(

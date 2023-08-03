@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             ),
             SafeArea(
               child: SizedBox(
-                width: 380,
+                width: MediaQuery.of(context).size.width * 0.8,
                 child: ElevatedButton(
                   style: const ButtonStyle(
                       backgroundColor:
@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               PrometheusTextFormField(
                                 title: 'Senha',
+                                isPassword: true,
                               ),
                             ],
                           ),
